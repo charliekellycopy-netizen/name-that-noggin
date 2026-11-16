@@ -1,6 +1,6 @@
 import { CELEBS } from "../data/celebs.js";
 import PHOTOS from "../data/photos.json"; // per person, a list of photos with their Commons credit
-import { SUMMIT, climbFor, clampAlt, zoneAt, mountWorld, climbTo, resetClimb } from "./ascent.js";
+import { SUMMIT, climbFor, clampAlt, zoneAt, mountWorld, climbTo, frameClimber, flashGain, resetClimb } from "./ascent.js";
 
 const ROUND_LENGTH = 10;
 const DIFFICULTY_MIX = { 1: 4, 2: 4, 3: 2 }; // easy first, toughest last
@@ -193,56 +193,29 @@ const BEST_ALT = "ntn-best-alt";
 const zoneLine = m => { const z = zoneAt(m); return `${z.stage}, ${z.name}`; };
 
 // ---- Rendering --------------------------------------------------------
+// The world is the stage: a fixed HUD across the top (altitude, progress, honours, like a
+// dive computer), and the game floats over the dome in glass cards.
 const app = document.getElementById("app");
+const hud = document.getElementById("hud");
+const banner = document.getElementById("banner");
 let state = null;
 
-function barHTML(left, alt) {
-  const meter = alt === undefined ? "" :
-    `<span class="altimeter"><span class="label">Altitude</span><b class="thin" id="alt">${Math.round(alt)}m</b></span>`;
-  return `<header class="bar enter">${left}${meter}<span class="crest" aria-hidden="true">NTN</span></header>`;
-}
+// Where the camera holds the climber on each screen (fraction of screen height from the top).
+const VIEW = { home: 0.78, question: 0.9, climb: 0.58, results: 0.82 };
 
-function renderHome() {
-  state = null;
-  document.body.classList.remove("climbing");
-  resetClimb();
-  const best = loadBest(), bestAlt = loadBest(BEST_ALT);
-  app.innerHTML = `
-    ${barHTML(`<span class="chip ghost"><span class="diamond" style="color:var(--gold)"></span>Members&rsquo; Foyer</span>`)}
-    <section class="brand enter enter-2">
-      <p class="tagline">Est. MMXXVI</p>
-      <h1><span>Name That</span><span>N<span class="o">o</span>ggin</span></h1>
-      <p class="tagline">The most distinguished cranial examination</p>
-    </section>
-    <section class="card gilded enter enter-3">
-      <p class="lede voice">Before you lies the summit of a renowned head, and nothing more. Discern its owner from four candidates of impeccable standing. Each correct identification carries you further up the Great Dome; the swift climb further still.</p>
-      <div class="stats">
-        <div class="stat"><b>${roman(ROUND_LENGTH)}</b><span>specimens per sitting</span></div>
-        <div class="stat"><b>M</b><span>metres to the summit</span></div>
-        <div class="stat"><b>${romanBig(CELEBS.length)}</b><span>craniums in the collection</span></div>
-      </div>
-      <button class="btn wide" id="start">Commence the Examination</button>
-    </section>
-    <section class="card enter enter-4">
-      <div class="record-line">
-        <div>
-          <p class="label">Your finest showing</p>
-          <p class="voice" style="font-size:18px;color:var(--gold)">${best ? rankFor(best) : "Yet to be examined"}</p>
-        </div>
-        <span class="big thin">${best ? roman(best) : "&mdash;"}<small> / ${roman(ROUND_LENGTH)}</small></span>
-      </div>
-      ${bestAlt ? `<p class="ascent-line">Highest ascent <b>${bestAlt}m</b> &middot; ${zoneLine(bestAlt)}</p>` : ""}
-    </section>
-    <p class="note">${Object.keys(PHOTOS).length
-      ? "Photographs courtesy of Wikimedia Commons, duly credited upon each reveal."
-      : "The collection is shown in drawn likeness until photographs are acquired."}</p>`;
-  document.getElementById("start").onclick = startRound;
-}
-
-function startRound() {
-  state = { round: buildRound(), i: 0, score: 0, alt: 0, results: [], answered: false, climbing: false };
-  resetClimb();
-  renderQuestion();
+function renderHUD() {
+  const best = loadBest(BEST_ALT);
+  const alt = state ? state.alt : 0;
+  const right = state
+    ? `<span class="label">Honours</span><b id="honours">${state.score ? roman(state.score) : "Nil"}</b>`
+    : `<span class="label">Best</span><b>${best ? best + "m" : "&mdash;"}</b>`;
+  const mid = state
+    ? `<div class="segs" id="track">${trackHTML()}</div><span class="label">Specimen ${roman(Math.min(state.i + 1, state.round.length))} of ${roman(state.round.length)}</span>`
+    : `<span class="label">The Great Dome &middot; summit M metres</span>`;
+  hud.innerHTML = `
+    <div class="panel"><span class="label">Altitude</span><b id="alt">${Math.round(alt)}m</b></div>
+    <div class="hud-mid">${mid}</div>
+    <div class="panel r">${right}</div>`;
 }
 
 function trackHTML() {
@@ -252,33 +225,68 @@ function trackHTML() {
   }).join("");
 }
 
+function setScreen(name) {
+  document.body.dataset.screen = name;
+  frameClimber(VIEW[name]);
+}
+
+function renderHome() {
+  state = null;
+  document.body.classList.remove("climbing");
+  resetClimb();
+  setScreen("home");
+  renderHUD();
+  const best = loadBest(), bestAlt = loadBest(BEST_ALT);
+  app.innerHTML = `
+    <section class="brand enter">
+      <p class="tagline">Est. MMXXVI &middot; The Ascent of the Dome</p>
+      <h1><span>Name That</span><span>N<span class="o">o</span>ggin</span></h1>
+      <p class="lede voice">Before you lies the summit of a renowned head, and nothing more. Name its owner and climb the Great Dome; the swift climb further still.</p>
+    </section>
+    <section class="glass start enter enter-2">
+      <p class="rules">${roman(ROUND_LENGTH)} specimens &middot; IV candidates each &middot; swift answers climb higher</p>
+      <button class="btn wide ascend" id="start">&#9650; Begin the Ascent &#9650;</button>
+      <div class="record">
+        <span><span class="label">Finest showing</span>${best ? `${roman(best)} / ${roman(ROUND_LENGTH)}, ${rankFor(best)}` : "Yet to be examined"}</span>
+        ${bestAlt ? `<span><span class="label">Highest ascent</span>${bestAlt}m, ${zoneLine(bestAlt)}</span>` : ""}
+      </div>
+    </section>
+    <p class="note">Photographs courtesy of Wikimedia Commons, duly credited upon each reveal.</p>`;
+  document.getElementById("start").onclick = startRound;
+}
+
+function startRound() {
+  state = { round: buildRound(), i: 0, score: 0, alt: 0, results: [], answered: false, climbing: false };
+  resetClimb();
+  renderQuestion();
+}
+
 function renderQuestion() {
   const { round, i } = state;
   const q = round[i];
   state.answered = false;
   state.shownAt = performance.now();
+  setScreen("question");
+  renderHUD();
   app.innerHTML = `
-    ${barHTML(`<span class="chip"><span class="diamond"></span><span id="honours">${state.score ? roman(state.score) : "Nil"}</span> Honours</span>`, state.alt)}
-    <div class="progress enter">
-      <div class="row">
-        <span class="label">Specimen</span>
-        <span class="count thin">${roman(i + 1)} <small>/ ${roman(round.length)}</small></span>
-      </div>
-      <div class="track" id="track">${trackHTML()}</div>
-    </div>
-    <section class="card gilded exhibit enter enter-2" id="exhibit">
+    <section class="glass exhibit drop" id="exhibit">
       <div class="stage" id="stage">${stageHTML(q.answer, "h" + i, q.photo)}</div>
-      <div class="caption">
-        <span class="plaque" id="plaque">Lot ${roman(i + 1)} &middot; Identity Withhead</span>
+      <div class="caption"><span class="plaque" id="plaque">Lot ${roman(i + 1)} &middot; Identity Withhead</span></div>
+      <div class="body" id="qbody">
+        <p class="question voice">Kindly identify the distinguished cranium.</p>
+        <div class="options" id="options">
+          ${q.options.map((o, k) => `<button class="opt" data-k="${k}"><span class="num">${k + 1}</span><span class="who">${esc(o.name)}</span></button>`).join("")}
+        </div>
       </div>
-    </section>
-    <p class="question voice enter enter-3">Kindly identify the distinguished cranium.</p>
-    <div class="options enter enter-3" id="options">
-      ${q.options.map((o, k) => `<button class="opt" id="opt-${k}" data-k="${k}"><span class="num">${roman(k + 1)}</span><span class="who">${esc(o.name)}</span></button>`).join("")}
-    </div>
-    <div id="after"></div>`;
+    </section>`;
   app.querySelectorAll(".opt").forEach(b => b.onclick = () => answer(+b.dataset.k));
   app.querySelectorAll(".stage img").forEach(img => img.onerror = () => useFallback(img));
+}
+
+function climbLine(climb, from) {
+  if (climb.metres > 0) return `+${climb.metres}m${climb.swift ? ` &middot; ${climb.swift}m for swiftness` : ""}`;
+  if (climb.metres < 0) return `&minus;${-climb.metres}m &middot; the committee sends you back down`;
+  return `+0m &middot; you cling on at ${Math.round(from)}m`;
 }
 
 function answer(k) {
@@ -292,43 +300,30 @@ function answer(k) {
   const climb = climbFor({ correct, trick: q.trick, difficulty: q.answer.difficulty, seconds });
   state.results.push({ answer: q.answer, chosen, correct, photo: q.photo, climb });
 
-  app.querySelectorAll(".opt").forEach((b, j) => {
-    b.disabled = true;
-    const o = q.options[j];
-    if (q.trick) b.classList.add(j === k ? "wrong" : "dim");
-    else if (o === q.answer) b.classList.add("right");
-    else if (j === k) b.classList.add("wrong");
-    else b.classList.add("dim");
-  });
   reveal(document.getElementById("stage"));
   const plaque = document.getElementById("plaque");
   plaque.textContent = q.answer.name;
   plaque.classList.add("named");
   if (correct) document.getElementById("exhibit").classList.add("lauded");
-  document.getElementById("track").innerHTML = trackHTML();
-  document.getElementById("honours").textContent = state.score ? roman(state.score) : "Nil";
+  renderHUD();
 
+  // Like a dive result: the verdict, what it earned, and the button that moves you.
   const last = state.i === state.round.length - 1;
-  const after = document.getElementById("after");
-  after.innerHTML = `
-    <section class="card verdict ${correct ? "good" : "bad"}">
+  const mistaken = q.trick ? "" : correct ? "" : `<span class="known">Not ${esc(chosen.name)}.</span>`;
+  document.getElementById("qbody").innerHTML = `
+    <div class="verdict ${correct ? "good" : "bad"}">
       <span class="exclaim voice">${correct ? pick(PRAISE) : pick(REGRET)}</span>
       <span class="name">${correct ? "Indeed, " : "The cranium belongs to "}${esc(q.answer.name)}.</span>
+      ${mistaken}
       <span class="known">${esc(q.answer.known)}</span>
       <span class="climb ${climb.metres > 0 ? "up" : climb.metres < 0 ? "down" : ""}">${climbLine(climb, state.alt)}</span>
       ${creditHTML(q.answer, q.photo)}
-      <button class="btn wide" id="next">${climb.metres > 0 ? "Ascend" : last ? "Receive Your Verdict" : "Proceed to the Next Specimen"}</button>
-    </section>`;
+      <button class="btn wide ascend" id="next">${climb.metres > 0 ? "&#9650; Ascend &#9650;" : last ? "Receive Your Verdict" : "Onward"}</button>
+    </div>`;
   const next = document.getElementById("next");
   next.onclick = advance;
   next.focus({ preventScroll: true });
-  if (matchMedia("(max-width: 700px)").matches) after.scrollIntoView({ behavior: "smooth", block: "end" });
-}
-
-function climbLine(climb, from) {
-  if (climb.metres > 0) return `&#9650; ${climb.metres}m up the dome${climb.swift ? `, ${climb.swift}m of it for swiftness` : ""}`;
-  if (climb.metres < 0) return `&#9660; The committee sends you ${-climb.metres}m back down.`;
-  return `You cling on at ${Math.round(from)}m.`;
+  if (climb.metres) flashGain(climb.metres > 0 ? `+${climb.metres}m` : `−${-climb.metres}m`, climb.metres < 0);
 }
 
 async function advance() {
@@ -337,7 +332,7 @@ async function advance() {
   const to = clampAlt(state.alt + climb.metres);
   if (to !== state.alt) {
     state.climbing = true;
-    await ascend(state.alt, to, climb);
+    await ascend(state.alt, to);
     state.climbing = false;
   }
   state.alt = to;
@@ -349,41 +344,30 @@ async function advance() {
 
 const wait = ms => new Promise(r => setTimeout(r, ms));
 
-// The climb between specimens: the game steps aside and the camera follows you up the dome.
-async function ascend(from, to, climb) {
-  const hud = document.getElementById("hud");
+// The climb between specimens: the card lifts away and the camera follows you up the dome,
+// with the altitude counting in the HUD and a banner when you cross into a new Norwood stage.
+async function ascend(from, to) {
   const start = zoneAt(from);
   document.body.classList.add("climbing");
-  hud.innerHTML = `
-    <section class="card gilded hud-card">
-      <p class="label" id="hud-zone">${start.stage} &middot; ${start.name}</p>
-      <p class="hud-alt thin"><span id="hud-alt">${Math.round(from)}</span><small>m</small></p>
-      <p class="hud-gain">${climbLine(climb, from)}</p>
-      <p class="hud-entered voice" id="hud-entered" aria-live="polite"></p>
-    </section>`;
-  const altEl = document.getElementById("hud-alt"), zoneEl = document.getElementById("hud-zone");
-  let zone = start;
-  await wait(250);
-  await climbTo(to, m => {
-    altEl.textContent = Math.round(m);
-    const z = zoneAt(m);
-    if (z.at !== zone.at) { zone = z; zoneEl.innerHTML = `${z.stage} &middot; ${z.name}`; }
-  });
+  const altEl = document.getElementById("alt");
+  await wait(200);
+  await climbTo(to, m => { altEl.textContent = Math.round(m) + "m"; }, VIEW.climb);
   const end = zoneAt(to);
   const entered = to > from && end.at > start.at;
   if (entered) {
-    document.getElementById("hud-entered").textContent = to >= SUMMIT
-      ? "You have conquered the summit. The view is magnificent, and very shiny."
-      : `You have entered ${end.stage}: ${end.name}.`;
+    banner.innerHTML = to >= SUMMIT
+      ? `<span class="label">The Summit</span><b>Conquered</b><em class="voice">The view is magnificent, and very shiny.</em>`
+      : `<span class="label">Now entering ${end.stage}</span><b>${end.name}</b>`;
+    banner.classList.add("show");
   }
-  await wait(entered ? 1500 : 650);
+  await wait(entered ? 1600 : 500);
+  banner.classList.remove("show");
   document.body.classList.remove("climbing");
-  hud.innerHTML = "";
 }
 
 function shareText() {
   const line = state.results.map(r => r.correct ? "\u{1F7E1}" : "⚫").join("");
-  return `Name That Noggin: ${roman(state.score)} of ${roman(state.round.length)} \u25B2 ${state.alt}m\n${line}\n${rankFor(state.score)}, ${zoneAt(state.alt).stage}`;
+  return `Name That Noggin: ${roman(state.score)} of ${roman(state.round.length)} ▲ ${state.alt}m\n${line}\n${rankFor(state.score)}, ${zoneAt(state.alt).stage}`;
 }
 
 function avatarHTML(r) {
@@ -393,37 +377,34 @@ function avatarHTML(r) {
 }
 
 function renderResults() {
-  const { score, round, results } = state;
-  const best = loadBest(), bestAlt = loadBest(BEST_ALT), alt = state.alt;
+  const { score, round, results, alt } = state;
+  const best = loadBest(), bestAlt = loadBest(BEST_ALT);
   if (score > best) saveBest(score);
   if (alt > bestAlt) saveBest(alt, BEST_ALT);
+  setScreen("results");
+  renderHUD();
+  const z = zoneAt(alt);
   app.innerHTML = `
-    ${barHTML(`<span class="chip"><span class="diamond"></span>${score ? roman(score) : "Nil"} Honours</span>`, alt)}
-    <section class="card gilded jackpot enter">
+    <section class="glass jackpot drop">
       <span class="medal" aria-hidden="true">N&middot;T&middot;N</span>
       <p class="label">The Committee Has Deliberated</p>
-      <h2>Certificate of Cranial Discernment</h2>
-      <p class="body voice" style="font-size:17px">The bearer correctly identified</p>
-      <div class="tally">${roman(score)}<small> / ${roman(round.length)}</small></div>
-      <p class="body voice" style="font-size:17px">distinguished craniums, and is hereby recognised as</p>
+      <p class="reached"><b>${alt}</b><small>m</small></p>
+      <p class="zone-name">${alt >= SUMMIT ? "The Summit itself" : `${z.stage} &middot; ${z.name}`}</p>
+      <p class="body voice">The bearer identified ${roman(score)} of ${roman(round.length)} distinguished craniums, and is hereby recognised as</p>
       <p class="rank">${rankFor(score)}</p>
-      <p class="ascent-line">Ascended <b>${alt}m</b> &middot; ${alt >= SUMMIT ? "The Summit itself" : zoneLine(alt)}</p>
-      <div class="track" style="width:100%;margin-top:6px" aria-label="${score} right, ${round.length - score} wrong">${trackHTML()}</div>
-      ${score > best && best ? `<p class="body voice" style="font-size:16px;color:var(--gold)">A new personal distinction, surpassing ${roman(best)}.</p>` : ""}
-      ${alt > bestAlt && bestAlt ? `<p class="body voice" style="font-size:16px;color:var(--gold)">Your loftiest ascent yet, above ${bestAlt}m.</p>` : ""}
+      ${score > best && best ? `<p class="body voice gold">A new personal distinction, surpassing ${roman(best)}.</p>` : ""}
+      ${alt > bestAlt && bestAlt ? `<p class="body voice gold">Your loftiest ascent yet, above ${bestAlt}m.</p>` : ""}
+      <div class="actions">
+        <button class="btn ascend" id="again">&#9650; Climb Again &#9650;</button>
+        <button class="btn quiet" id="share">Copy Certificate</button>
+        <button class="btn quiet" id="home">The Foyer</button>
+      </div>
+      <p class="toast" id="toast" aria-live="polite"></p>
+      <div id="copyfallback"></div>
     </section>
-    <div class="actions enter enter-2">
-      <button class="btn" id="again">Sit Again</button>
-      <button class="btn quiet" id="share">Copy Certificate</button>
-      <button class="btn quiet" id="home">The Foyer</button>
-    </div>
-    <p class="toast" id="toast" aria-live="polite"></p>
-    <div id="copyfallback"></div>
-    <section class="card board enter enter-3">
+    <section class="glass board enter enter-2">
       <div class="head"><span class="label">The Record</span><span class="label">${roman(score)} of ${roman(round.length)}</span></div>
-      <ol>${results.map((r, j) => `<li><span class="n">${j + 1}</span>${avatarHTML(r)}<span class="who">${esc(r.answer.name)}${r.correct ? "" : `<small>Mistaken for ${esc(r.chosen.name)}</small>`}</span>${r.correct
-        ? `<span class="res ok">Named</span>`
-        : `<span class="res no">Missed</span>`}</li>`).join("")}</ol>
+      <ol>${results.map((r, j) => `<li><span class="n">${j + 1}</span>${avatarHTML(r)}<span class="who">${esc(r.answer.name)}${r.correct ? "" : `<small>Mistaken for ${esc(r.chosen.name)}</small>`}</span><span class="res ${r.climb.metres > 0 ? "ok" : "no"}">${r.climb.metres > 0 ? "+" : r.climb.metres < 0 ? "&minus;" : "+"}${Math.abs(r.climb.metres)}m</span></li>`).join("")}</ol>
     </section>`;
   document.getElementById("again").onclick = startRound;
   document.getElementById("home").onclick = renderHome;

@@ -11,12 +11,13 @@ import "../styles/game.css";
     <link rel="icon" href={`${import.meta.env.BASE_URL.replace(/\/$/, "")}/favicon.svg`} type="image/svg+xml">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@200;300;400;500;600&family=Cormorant+Garamond:ital,wght@1,400;1,500&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@200;300;400;500;600&family=Space+Mono:wght@400;700&family=Cormorant+Garamond:ital,wght@1,400;1,500&display=swap">
   </head>
   <body>
     <div id="world" aria-hidden="true"></div>
-    <div class="app" id="app"></div>
-    <div id="hud"></div>
+    <header id="hud"></header>
+    <main class="app" id="app"></main>
+    <div id="banner" aria-live="polite"></div>
     <script>
       import "../scripts/game.js";
     </script>

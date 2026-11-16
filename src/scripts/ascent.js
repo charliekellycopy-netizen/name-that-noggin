@@ -123,7 +123,9 @@ function worldHTML() {
 }
 
 // ---- Camera ---------------------------------------------------------------
-let alt = 0;
+// The camera holds the climber at `view` (a fraction of the screen height from the top):
+// low on the screen while a question card floats above, higher up during the climb.
+let alt = 0, view = 0.8;
 let track, climber, pip;
 const reduce = () => matchMedia("(prefers-reduced-motion: reduce)").matches;
 
@@ -132,32 +134,32 @@ export function mountWorld(el) {
   track = el.querySelector("#world-track");
   climber = el.querySelector("#climber");
   pip = el.querySelector("#gauge-pip");
-  addEventListener("resize", () => place(alt));
-  place(0);
+  addEventListener("resize", () => place(alt, view));
+  place(0, view);
 }
 
-function place(m) {
-  // keep the climber about 60% of the way down the screen
-  const anchor = innerHeight * 0.6;
-  track.style.transform = `translateY(${(anchor - yOf(m)).toFixed(1)}px)`;
+function place(m, v) {
+  track.style.transform = `translateY(${(innerHeight * v - yOf(m)).toFixed(1)}px)`;
   climber.style.top = `${yOf(m)}px`;
   pip.style.bottom = `${(m / SUMMIT * 100).toFixed(2)}%`;
 }
 
-// Pan from the current altitude to `to`. onTick gets the altitude on each frame.
-export function climbTo(to, onTick = () => {}) {
-  const from = alt;
-  alt = to;
-  const dur = reduce() || from === to ? 0 : 900 + Math.min(1200, Math.abs(to - from) * 12);
+// Pan to altitude `to`, framing the climber at `toView`. onTick gets the altitude on each frame.
+export function climbTo(to, onTick = () => {}, toView = view) {
+  const from = alt, fromView = view;
+  alt = to; view = toView;
+  const dur = reduce() ? 0
+    : from !== to ? 900 + Math.min(1200, Math.abs(to - from) * 12)
+    : fromView !== toView ? 600 : 0;
   return new Promise(done => {
     const t0 = performance.now();
     const ease = t => t < .5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
     let finished = false;
     function frame(now) {
       if (finished) return;
-      const t = dur ? Math.min(1, (now - t0) / dur) : 1;
-      const m = from + (to - from) * ease(t);
-      place(m);
+      const t = dur ? Math.min(1, (now - t0) / dur) : 1, e = ease(t);
+      const m = from + (to - from) * e;
+      place(m, fromView + (toView - fromView) * e);
       onTick(m);
       if (t < 1) requestAnimationFrame(frame);
       else { finished = true; done(); }
@@ -168,7 +170,18 @@ export function climbTo(to, onTick = () => {}) {
   });
 }
 
-export function resetClimb() {
-  alt = 0;
-  place(0);
+export const frameClimber = toView => climbTo(alt, () => {}, toView);
+
+// A "+92m" that rises off the climber.
+export function flashGain(text, down = false) {
+  const el = document.createElement("span");
+  el.className = "gain" + (down ? " down" : "");
+  el.textContent = text;
+  climber.appendChild(el);
+  setTimeout(() => el.remove(), 2400);
+}
+
+export function resetClimb(toView = view) {
+  alt = 0; view = toView;
+  place(0, view);
 }
