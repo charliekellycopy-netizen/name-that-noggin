@@ -7,17 +7,14 @@ import "../styles/game.css";
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <title>Name That Noggin</title>
-    <meta name="description" content="Identify a famous bald head from its dome alone, and climb the Great Dome as you go.">
+    <meta name="description" content="The Daily Noggin: name ten famous bald heads from the dome alone. The sooner you name him, the greater the honour.">
     <link rel="icon" href={`${import.meta.env.BASE_URL.replace(/\/$/, "")}/favicon.svg`} type="image/svg+xml">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@200;300;400;500;600&family=Space+Mono:wght@400;700&family=Cormorant+Garamond:ital,wght@1,400;1,500&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@200;300;400;500;600&family=Cormorant+Garamond:ital,wght@1,400;1,500&display=swap">
   </head>
   <body>
-    <div id="world" aria-hidden="true"></div>
-    <header id="hud"></header>
     <main class="app" id="app"></main>
-    <div id="banner" aria-live="polite"></div>
     <script>
       import "../scripts/game.js";
     </script>

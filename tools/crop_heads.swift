@@ -2,10 +2,13 @@
 //
 // For each photo under the source folder (e.g. <id>/<n>.jpg, one folder per person) writes:
 //   <out>/<id>/<n>/crop.jpg  — 800x600, top of the head down to just above the eyebrows
-//   <out>/<id>/<n>/full.jpg  — 800x600, head and shoulders, for the reveal
-// and <out>/crops-report.json with what was detected.
+//   <out>/<id>/<n>/zoom.jpg  — from the dome out to head and shoulders, for the zoom-out reveal
+// and <out>/crops-report.json with what was detected, including each photo's "zoom":
+//   crop and full: those two framings as fractions of zoom.jpg ([x, y, width, height])
+//   brow, eyes, nose: how far through the zoom (0 = dome, 1 = full) each first shows
 //
 // Usage: swift tools/crop_heads.swift <source dir> <out dir> [adjust.json]
+// then: python3 tools/zoom_data.py (copies the zoom framings into src/data/zoom.json)
 //
 // adjust.json fine-tunes one photo's crop (keyed "<id>/<n>"), in units of face height:
 //   { "moby/0": { "cropShift": -0.05, "cropZoom": 1.1, "fullShift": 0.1, "face": 1 } }
@@ -65,7 +68,7 @@ func outside(_ r: CGRect, _ W: Double, _ H: Double) -> Double {
     return inside.isNull ? 1 : 1 - (inside.width * inside.height) / (r.width * r.height)
 }
 
-func write(_ image: CGImage, crop: CGRect, to url: URL) throws {
+func write(_ image: CGImage, crop: CGRect, to url: URL, size: CGSize = CGSize(width: outW, height: outH)) throws {
     // Anything past the photo's edge is filled with its stretched, blurred border.
     let H = Double(image.height)
     let ci = CIImage(cgImage: image)
@@ -76,11 +79,11 @@ func write(_ image: CGImage, crop: CGRect, to url: URL) throws {
                                             colorSpace: CGColorSpace(name: CGColorSpace.sRGB)) else {
         throw NSError(domain: "crop", code: 1)
     }
-    let ctx = CGContext(data: nil, width: Int(outW), height: Int(outH), bitsPerComponent: 8, bytesPerRow: 0,
+    let ctx = CGContext(data: nil, width: Int(size.width), height: Int(size.height), bitsPerComponent: 8, bytesPerRow: 0,
                         space: CGColorSpace(name: CGColorSpace.sRGB)!,
                         bitmapInfo: CGImageAlphaInfo.noneSkipLast.rawValue)!
     ctx.interpolationQuality = .high
-    ctx.draw(cut, in: CGRect(x: 0, y: 0, width: outW, height: outH))
+    ctx.draw(cut, in: CGRect(origin: .zero, size: size))
     let dest = CGImageDestinationCreateWithURL(url as CFURL, UTType.jpeg.identifier as CFString, 1, nil)!
     CGImageDestinationAddImage(dest, ctx.makeImage()!, [kCGImageDestinationLossyCompressionQuality: 0.82] as CFDictionary)
     if !CGImageDestinationFinalize(dest) { throw NSError(domain: "write", code: 2) }
@@ -118,6 +121,11 @@ for file in files {
 
     // Top of the eyebrows; fall back to an estimate from the box if landmarks are missing.
     var browTop = faceTop + fh * 0.18
+    let lm = face.landmarks
+    let toY = { (r: VNFaceLandmarkRegion2D) in r.normalizedPoints.map { (1 - (bb.minY + Double($0.y) * bb.height)) * H } }
+    // where the eyes start and the nose ends, for the zoom-out stages (estimated if missing)
+    let eyesTop = ([lm?.leftEye, lm?.rightEye].compactMap { $0 }.flatMap(toY).min()) ?? faceTop + fh * 0.3
+    let noseBottom = (lm?.nose.map(toY)?.max()) ?? faceTop + fh * 0.62
     let brows = [face.landmarks?.leftEyebrow, face.landmarks?.rightEyebrow].compactMap { $0 }
     if !brows.isEmpty {
         let ys = brows.flatMap { $0.normalizedPoints }.map { (1 - (bb.minY + Double($0.y) * bb.height)) * H }
@@ -140,7 +148,18 @@ for file in files {
     let dir = outDir.appendingPathComponent(id)
     try FileManager.default.createDirectory(at: dir, withIntermediateDirectories: true)
     try write(image, crop: cropRect, to: dir.appendingPathComponent("crop.jpg"))
-    try write(image, crop: fullRect, to: dir.appendingPathComponent("full.jpg"))
+
+    // Zoom-out: one picture spanning both framings; the page glides from one to the other.
+    let union = cropRect.union(fullRect)
+    let zoomW = 1200.0
+    try write(image, crop: union, to: dir.appendingPathComponent("zoom.jpg"),
+              size: CGSize(width: zoomW, height: (zoomW * union.height / union.width).rounded()))
+    let frac = { (r: CGRect) in [(r.minX - union.minX) / union.width, (r.minY - union.minY) / union.height,
+                                 r.width / union.width, r.height / union.height].map { ($0 * 10000).rounded() / 10000 } }
+    // the zoom's bottom edge runs from cutLine to fullRect.maxY; when does it pass each feature?
+    let through = { (y: Double) in ((y - cutLine) / (fullRect.maxY - cutLine) * 1000).rounded() / 1000 }
+    entry["zoom"] = ["crop": frac(cropRect), "full": frac(fullRect),
+                     "brow": through(browTop), "eyes": through(eyesTop + fh * 0.03), "nose": through(noseBottom)]
     entry["confidence"] = Double(face.confidence)
     print("✓ \(id)\(faces.count > 1 ? "  (\(faces.count) faces, used #\(pick))" : "")\(entry["warning"].map { "  ⚠︎ \($0)" } ?? "")")
 }

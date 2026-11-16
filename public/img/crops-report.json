@@ -3,527 +3,1870 @@
     "confidence" : 1,
     "faces" : 1,
     "id" : "andre-agassi\/0",
-    "landmarks" : true
+    "landmarks" : true,
+    "zoom" : {
+      "brow" : 0.034000000000000002,
+      "crop" : [
+        0.20449999999999999,
+        0,
+        0.59089999999999998,
+        0.45029999999999998
+      ],
+      "eyes" : 0.13400000000000001,
+      "full" : [
+        0,
+        0.2379,
+        1,
+        0.7621
+      ],
+      "nose" : 0.40000000000000002
+    }
   },
   {
     "confidence" : 1,
     "faces" : 1,
     "id" : "andre-agassi\/1",
     "landmarks" : true,
-    "warning" : "35% of the dome crop is padding"
+    "warning" : "35% of the dome crop is padding",
+    "zoom" : {
+      "brow" : 0.034000000000000002,
+      "crop" : [
+        0.20449999999999999,
+        0,
+        0.59089999999999998,
+        0.45029999999999998
+      ],
+      "eyes" : 0.14000000000000001,
+      "full" : [
+        0,
+        0.2379,
+        1,
+        0.7621
+      ],
+      "nose" : 0.40200000000000002
+    }
   },
   {
     "confidence" : 1,
     "faces" : 1,
     "id" : "arjen-robben\/0",
-    "landmarks" : true
+    "landmarks" : true,
+    "zoom" : {
+      "brow" : 0.034000000000000002,
+      "crop" : [
+        0.20449999999999999,
+        0,
+        0.59089999999999998,
+        0.45029999999999998
+      ],
+      "eyes" : 0.13900000000000001,
+      "full" : [
+        0,
+        0.2379,
+        1,
+        0.7621
+      ],
+      "nose" : 0.38200000000000001
+    }
   },
   {
     "confidence" : 1,
     "faces" : 1,
     "id" : "arjen-robben\/1",
-    "landmarks" : true
+    "landmarks" : true,
+    "zoom" : {
+      "brow" : 0.034000000000000002,
+      "crop" : [
+        0.20449999999999999,
+        0,
+        0.59089999999999998,
+        0.45029999999999998
+      ],
+      "eyes" : 0.123,
+      "full" : [
+        0,
+        0.2379,
+        1,
+        0.7621
+      ],
+      "nose" : 0.39400000000000002
+    }
   },
   {
     "confidence" : 1,
     "faces" : 1,
     "id" : "arjen-robben\/2",
     "landmarks" : true,
-    "warning" : "48% of the dome crop is padding"
+    "warning" : "48% of the dome crop is padding",
+    "zoom" : {
+      "brow" : 0.034000000000000002,
+      "crop" : [
+        0.20449999999999999,
+        0,
+        0.59089999999999998,
+        0.45029999999999998
+      ],
+      "eyes" : 0.13600000000000001,
+      "full" : [
+        0,
+        0.2379,
+        1,
+        0.7621
+      ],
+      "nose" : 0.42099999999999999
+    }
   },
   {
     "confidence" : 1,
     "faces" : 1,
     "id" : "ben-kingsley\/0",
     "landmarks" : true,
-    "warning" : "54% of the dome crop is padding"
+    "warning" : "54% of the dome crop is padding",
+    "zoom" : {
+      "brow" : 0.034000000000000002,
+      "crop" : [
+        0.20449999999999999,
+        0,
+        0.59089999999999998,
+        0.45029999999999998
+      ],
+      "eyes" : 0.129,
+      "full" : [
+        0,
+        0.2379,
+        1,
+        0.7621
+      ],
+      "nose" : 0.38600000000000001
+    }
   },
   {
     "confidence" : 1,
     "faces" : 1,
     "id" : "ben-kingsley\/1",
-    "landmarks" : true
+    "landmarks" : true,
+    "zoom" : {
+      "brow" : 0.034000000000000002,
+      "crop" : [
+        0.20449999999999999,
+        0,
+        0.59089999999999998,
+        0.45029999999999998
+      ],
+      "eyes" : 0.11799999999999999,
+      "full" : [
+        0,
+        0.2379,
+        1,
+        0.7621
+      ],
+      "nose" : 0.41899999999999998
+    }
   },
   {
     "confidence" : 1,
     "faces" : 1,
     "id" : "ben-kingsley\/2",
     "landmarks" : true,
-    "warning" : "51% of the dome crop is padding"
+    "warning" : "51% of the dome crop is padding",
+    "zoom" : {
+      "brow" : 0.034000000000000002,
+      "crop" : [
+        0.20449999999999999,
+        0,
+        0.59089999999999998,
+        0.45029999999999998
+      ],
+      "eyes" : 0.14399999999999999,
+      "full" : [
+        0,
+        0.2379,
+        1,
+        0.7621
+      ],
+      "nose" : 0.435
+    }
   },
   {
     "confidence" : 1,
     "faces" : 1,
     "id" : "ben-kingsley\/3",
     "landmarks" : true,
-    "warning" : "40% of the dome crop is padding"
+    "warning" : "40% of the dome crop is padding",
+    "zoom" : {
+      "brow" : 0.034000000000000002,
+      "crop" : [
+        0.20449999999999999,
+        0,
+        0.59089999999999998,
+        0.45029999999999998
+      ],
+      "eyes" : 0.129,
+      "full" : [
+        0,
+        0.2379,
+        1,
+        0.7621
+      ],
+      "nose" : 0.38400000000000001
+    }
   },
   {
     "confidence" : 1,
     "faces" : 2,
     "id" : "billy-zane\/0",
-    "landmarks" : true
+    "landmarks" : true,
+    "zoom" : {
+      "brow" : 0.034000000000000002,
+      "crop" : [
+        0.20449999999999999,
+        0,
+        0.59089999999999998,
+        0.45029999999999998
+      ],
+      "eyes" : 0.13800000000000001,
+      "full" : [
+        0,
+        0.2379,
+        1,
+        0.7621
+      ],
+      "nose" : 0.39000000000000001
+    }
   },
   {
     "confidence" : 1,
     "faces" : 1,
     "id" : "bruce-willis\/0",
     "landmarks" : true,
-    "warning" : "45% of the dome crop is padding"
+    "warning" : "45% of the dome crop is padding",
+    "zoom" : {
+      "brow" : 0.034000000000000002,
+      "crop" : [
+        0.20449999999999999,
+        0,
+        0.59089999999999998,
+        0.45029999999999998
+      ],
+      "eyes" : 0.13300000000000001,
+      "full" : [
+        0,
+        0.2379,
+        1,
+        0.7621
+      ],
+      "nose" : 0.35999999999999999
+    }
   },
   {
     "confidence" : 1,
     "faces" : 2,
     "id" : "bruce-willis\/1",
     "landmarks" : true,
-    "warning" : "49% of the dome crop is padding"
+    "warning" : "49% of the dome crop is padding",
+    "zoom" : {
+      "brow" : 0.034000000000000002,
+      "crop" : [
+        0.20449999999999999,
+        0,
+        0.59089999999999998,
+        0.45029999999999998
+      ],
+      "eyes" : 0.159,
+      "full" : [
+        0,
+        0.2379,
+        1,
+        0.7621
+      ],
+      "nose" : 0.376
+    }
   },
   {
     "confidence" : 1,
     "faces" : 1,
     "id" : "charles-barkley\/0",
     "landmarks" : true,
-    "warning" : "41% of the dome crop is padding"
+    "warning" : "41% of the dome crop is padding",
+    "zoom" : {
+      "brow" : 0.034000000000000002,
+      "crop" : [
+        0.20449999999999999,
+        0,
+        0.59089999999999998,
+        0.45029999999999998
+      ],
+      "eyes" : 0.14699999999999999,
+      "full" : [
+        0,
+        0.2379,
+        1,
+        0.7621
+      ],
+      "nose" : 0.35699999999999998
+    }
   },
   {
     "confidence" : 1,
     "faces" : 1,
     "id" : "charles-barkley\/1",
     "landmarks" : true,
-    "warning" : "43% of the dome crop is padding"
+    "warning" : "43% of the dome crop is padding",
+    "zoom" : {
+      "brow" : 0.034000000000000002,
+      "crop" : [
+        0.20449999999999999,
+        0,
+        0.59089999999999998,
+        0.45029999999999998
+      ],
+      "eyes" : 0.14199999999999999,
+      "full" : [
+        0,
+        0.2379,
+        1,
+        0.7621
+      ],
+      "nose" : 0.34999999999999998
+    }
   },
   {
     "confidence" : 1,
     "faces" : 1,
     "id" : "charles-barkley\/2",
     "landmarks" : true,
-    "warning" : "46% of the dome crop is padding"
+    "warning" : "46% of the dome crop is padding",
+    "zoom" : {
+      "brow" : 0.034000000000000002,
+      "crop" : [
+        0.20449999999999999,
+        0,
+        0.59089999999999998,
+        0.45029999999999998
+      ],
+      "eyes" : 0.14499999999999999,
+      "full" : [
+        0,
+        0.2379,
+        1,
+        0.7621
+      ],
+      "nose" : 0.35399999999999998
+    }
   },
   {
     "confidence" : 1,
     "faces" : 1,
     "id" : "dana-white\/0",
     "landmarks" : true,
-    "warning" : "43% of the dome crop is padding"
+    "warning" : "43% of the dome crop is padding",
+    "zoom" : {
+      "brow" : 0.034000000000000002,
+      "crop" : [
+        0.20449999999999999,
+        0,
+        0.59089999999999998,
+        0.45029999999999998
+      ],
+      "eyes" : 0.153,
+      "full" : [
+        0,
+        0.2379,
+        1,
+        0.7621
+      ],
+      "nose" : 0.36399999999999999
+    }
   },
   {
     "confidence" : 1,
     "faces" : 1,
     "id" : "dana-white\/1",
     "landmarks" : true,
-    "warning" : "31% of the dome crop is padding"
+    "warning" : "31% of the dome crop is padding",
+    "zoom" : {
+      "brow" : 0.034000000000000002,
+      "crop" : [
+        0.20449999999999999,
+        0,
+        0.59089999999999998,
+        0.45029999999999998
+      ],
+      "eyes" : 0.123,
+      "full" : [
+        0,
+        0.2379,
+        1,
+        0.7621
+      ],
+      "nose" : 0.38400000000000001
+    }
   },
   {
     "confidence" : 1,
     "faces" : 1,
     "id" : "dana-white\/2",
-    "landmarks" : true
+    "landmarks" : true,
+    "zoom" : {
+      "brow" : 0.034000000000000002,
+      "crop" : [
+        0.20449999999999999,
+        0,
+        0.59089999999999998,
+        0.45029999999999998
+      ],
+      "eyes" : 0.13600000000000001,
+      "full" : [
+        0,
+        0.2379,
+        1,
+        0.7621
+      ],
+      "nose" : 0.39800000000000002
+    }
   },
   {
     "confidence" : 1,
     "faces" : 1,
     "id" : "dana-white\/3",
     "landmarks" : true,
-    "warning" : "46% of the dome crop is padding"
+    "warning" : "46% of the dome crop is padding",
+    "zoom" : {
+      "brow" : 0.034000000000000002,
+      "crop" : [
+        0.20449999999999999,
+        0,
+        0.59089999999999998,
+        0.45029999999999998
+      ],
+      "eyes" : 0.154,
+      "full" : [
+        0,
+        0.2379,
+        1,
+        0.7621
+      ],
+      "nose" : 0.38800000000000001
+    }
   },
   {
     "confidence" : 1,
     "faces" : 1,
     "id" : "danny-devito\/0",
     "landmarks" : true,
-    "warning" : "43% of the dome crop is padding"
+    "warning" : "43% of the dome crop is padding",
+    "zoom" : {
+      "brow" : 0.034000000000000002,
+      "crop" : [
+        0.20449999999999999,
+        0,
+        0.59089999999999998,
+        0.45029999999999998
+      ],
+      "eyes" : 0.16,
+      "full" : [
+        0,
+        0.2379,
+        1,
+        0.7621
+      ],
+      "nose" : 0.40600000000000003
+    }
   },
   {
     "confidence" : 1,
     "faces" : 1,
     "id" : "danny-devito\/1",
     "landmarks" : true,
-    "warning" : "52% of the dome crop is padding"
+    "warning" : "52% of the dome crop is padding",
+    "zoom" : {
+      "brow" : 0.034000000000000002,
+      "crop" : [
+        0.20449999999999999,
+        0,
+        0.59089999999999998,
+        0.45029999999999998
+      ],
+      "eyes" : 0.185,
+      "full" : [
+        0,
+        0.2379,
+        1,
+        0.7621
+      ],
+      "nose" : 0.41999999999999998
+    }
   },
   {
     "confidence" : 1,
     "faces" : 1,
     "id" : "dwayne-johnson\/0",
     "landmarks" : true,
-    "warning" : "50% of the dome crop is padding"
+    "warning" : "50% of the dome crop is padding",
+    "zoom" : {
+      "brow" : 0.034000000000000002,
+      "crop" : [
+        0.20449999999999999,
+        0,
+        0.59089999999999998,
+        0.45029999999999998
+      ],
+      "eyes" : 0.14899999999999999,
+      "full" : [
+        0,
+        0.2379,
+        1,
+        0.7621
+      ],
+      "nose" : 0.38800000000000001
+    }
   },
   {
     "confidence" : 1,
     "faces" : 1,
     "id" : "dwayne-johnson\/1",
     "landmarks" : true,
-    "warning" : "41% of the dome crop is padding"
+    "warning" : "41% of the dome crop is padding",
+    "zoom" : {
+      "brow" : 0.034000000000000002,
+      "crop" : [
+        0.20449999999999999,
+        0,
+        0.59089999999999998,
+        0.45029999999999998
+      ],
+      "eyes" : 0.16800000000000001,
+      "full" : [
+        0,
+        0.2379,
+        1,
+        0.7621
+      ],
+      "nose" : 0.40000000000000002
+    }
   },
   {
     "confidence" : 1,
     "faces" : 1,
     "id" : "dwayne-johnson\/2",
     "landmarks" : true,
-    "warning" : "52% of the dome crop is padding"
+    "warning" : "52% of the dome crop is padding",
+    "zoom" : {
+      "brow" : 0.034000000000000002,
+      "crop" : [
+        0.20449999999999999,
+        0,
+        0.59089999999999998,
+        0.45029999999999998
+      ],
+      "eyes" : 0.159,
+      "full" : [
+        0,
+        0.2379,
+        1,
+        0.7621
+      ],
+      "nose" : 0.40699999999999997
+    }
   },
   {
     "confidence" : 1,
     "faces" : 1,
     "id" : "dwayne-johnson\/3",
     "landmarks" : true,
-    "warning" : "30% of the dome crop is padding"
+    "warning" : "30% of the dome crop is padding",
+    "zoom" : {
+      "brow" : 0.034000000000000002,
+      "crop" : [
+        0.20449999999999999,
+        0,
+        0.59089999999999998,
+        0.45029999999999998
+      ],
+      "eyes" : 0.13,
+      "full" : [
+        0,
+        0.2379,
+        1,
+        0.7621
+      ],
+      "nose" : 0.42499999999999999
+    }
   },
   {
     "confidence" : 1,
     "faces" : 1,
     "id" : "fabien-barthez\/0",
-    "landmarks" : true
+    "landmarks" : true,
+    "zoom" : {
+      "brow" : 0.034000000000000002,
+      "crop" : [
+        0.20449999999999999,
+        0,
+        0.59089999999999998,
+        0.45029999999999998
+      ],
+      "eyes" : 0.124,
+      "full" : [
+        0,
+        0.2379,
+        1,
+        0.7621
+      ],
+      "nose" : 0.42299999999999999
+    }
   },
   {
     "confidence" : 1,
     "faces" : 1,
     "id" : "jason-alexander\/0",
-    "landmarks" : true
+    "landmarks" : true,
+    "zoom" : {
+      "brow" : 0.034000000000000002,
+      "crop" : [
+        0.20449999999999999,
+        0,
+        0.59089999999999998,
+        0.45029999999999998
+      ],
+      "eyes" : 0.13800000000000001,
+      "full" : [
+        0,
+        0.2379,
+        1,
+        0.7621
+      ],
+      "nose" : 0.40100000000000002
+    }
   },
   {
     "confidence" : 1,
     "faces" : 1,
     "id" : "jason-alexander\/1",
-    "landmarks" : true
+    "landmarks" : true,
+    "zoom" : {
+      "brow" : 0.034000000000000002,
+      "crop" : [
+        0.20449999999999999,
+        0,
+        0.59089999999999998,
+        0.45029999999999998
+      ],
+      "eyes" : 0.13900000000000001,
+      "full" : [
+        0,
+        0.2379,
+        1,
+        0.7621
+      ],
+      "nose" : 0.39900000000000002
+    }
   },
   {
     "confidence" : 1,
     "faces" : 1,
     "id" : "jason-alexander\/2",
-    "landmarks" : true
+    "landmarks" : true,
+    "zoom" : {
+      "brow" : 0.034000000000000002,
+      "crop" : [
+        0.20449999999999999,
+        0,
+        0.59089999999999998,
+        0.45029999999999998
+      ],
+      "eyes" : 0.13500000000000001,
+      "full" : [
+        0,
+        0.2379,
+        1,
+        0.7621
+      ],
+      "nose" : 0.40400000000000003
+    }
   },
   {
     "confidence" : 1,
     "faces" : 1,
     "id" : "jason-statham\/0",
-    "landmarks" : true
+    "landmarks" : true,
+    "zoom" : {
+      "brow" : 0.034000000000000002,
+      "crop" : [
+        0.20449999999999999,
+        0,
+        0.59089999999999998,
+        0.45029999999999998
+      ],
+      "eyes" : 0.13,
+      "full" : [
+        0,
+        0.2379,
+        1,
+        0.7621
+      ],
+      "nose" : 0.38800000000000001
+    }
   },
   {
     "confidence" : 1,
     "faces" : 1,
     "id" : "jason-statham\/1",
-    "landmarks" : true
+    "landmarks" : true,
+    "zoom" : {
+      "brow" : 0.034000000000000002,
+      "crop" : [
+        0.20449999999999999,
+        0,
+        0.59089999999999998,
+        0.45029999999999998
+      ],
+      "eyes" : 0.16700000000000001,
+      "full" : [
+        0,
+        0.2379,
+        1,
+        0.7621
+      ],
+      "nose" : 0.44700000000000001
+    }
   },
   {
     "confidence" : 1,
     "faces" : 1,
     "id" : "jason-statham\/2",
     "landmarks" : true,
-    "warning" : "40% of the dome crop is padding"
+    "warning" : "40% of the dome crop is padding",
+    "zoom" : {
+      "brow" : 0.034000000000000002,
+      "crop" : [
+        0.20449999999999999,
+        0,
+        0.59089999999999998,
+        0.45029999999999998
+      ],
+      "eyes" : 0.122,
+      "full" : [
+        0,
+        0.2379,
+        1,
+        0.7621
+      ],
+      "nose" : 0.36299999999999999
+    }
   },
   {
     "confidence" : 1,
     "faces" : 1,
     "id" : "jeff-bezos\/0",
-    "landmarks" : true
+    "landmarks" : true,
+    "zoom" : {
+      "brow" : 0.034000000000000002,
+      "crop" : [
+        0.20449999999999999,
+        0,
+        0.59089999999999998,
+        0.45029999999999998
+      ],
+      "eyes" : 0.16400000000000001,
+      "full" : [
+        0,
+        0.2379,
+        1,
+        0.7621
+      ],
+      "nose" : 0.42399999999999999
+    }
   },
   {
     "confidence" : 1,
     "faces" : 1,
     "id" : "jeff-bezos\/1",
-    "landmarks" : true
+    "landmarks" : true,
+    "zoom" : {
+      "brow" : 0.034000000000000002,
+      "crop" : [
+        0.20449999999999999,
+        0,
+        0.59089999999999998,
+        0.45029999999999998
+      ],
+      "eyes" : 0.17499999999999999,
+      "full" : [
+        0,
+        0.2379,
+        1,
+        0.7621
+      ],
+      "nose" : 0.42499999999999999
+    }
   },
   {
     "confidence" : 1,
     "faces" : 1,
     "id" : "jeff-bezos\/2",
-    "landmarks" : true
+    "landmarks" : true,
+    "zoom" : {
+      "brow" : 0.034000000000000002,
+      "crop" : [
+        0.20449999999999999,
+        0,
+        0.59089999999999998,
+        0.45029999999999998
+      ],
+      "eyes" : 0.14999999999999999,
+      "full" : [
+        0,
+        0.2379,
+        1,
+        0.7621
+      ],
+      "nose" : 0.38800000000000001
+    }
   },
   {
     "confidence" : 1,
     "faces" : 1,
     "id" : "larry-david\/0",
     "landmarks" : true,
-    "warning" : "37% of the dome crop is padding"
+    "warning" : "37% of the dome crop is padding",
+    "zoom" : {
+      "brow" : 0.034000000000000002,
+      "crop" : [
+        0.20449999999999999,
+        0,
+        0.59089999999999998,
+        0.45029999999999998
+      ],
+      "eyes" : 0.14599999999999999,
+      "full" : [
+        0,
+        0.2379,
+        1,
+        0.7621
+      ],
+      "nose" : 0.40600000000000003
+    }
   },
   {
     "confidence" : 1,
     "faces" : 1,
     "id" : "larry-david\/1",
     "landmarks" : true,
-    "warning" : "53% of the dome crop is padding"
+    "warning" : "53% of the dome crop is padding",
+    "zoom" : {
+      "brow" : 0.034000000000000002,
+      "crop" : [
+        0.20449999999999999,
+        0,
+        0.59089999999999998,
+        0.45029999999999998
+      ],
+      "eyes" : 0.13500000000000001,
+      "full" : [
+        0,
+        0.2379,
+        1,
+        0.7621
+      ],
+      "nose" : 0.42199999999999999
+    }
   },
   {
     "confidence" : 1,
     "faces" : 1,
     "id" : "mahatma-gandhi\/0",
     "landmarks" : true,
-    "warning" : "32% of the dome crop is padding"
+    "warning" : "32% of the dome crop is padding",
+    "zoom" : {
+      "brow" : 0.034000000000000002,
+      "crop" : [
+        0.20449999999999999,
+        0,
+        0.59089999999999998,
+        0.45029999999999998
+      ],
+      "eyes" : 0.14199999999999999,
+      "full" : [
+        0,
+        0.2379,
+        1,
+        0.7621
+      ],
+      "nose" : 0.432
+    }
   },
   {
     "confidence" : 1,
     "faces" : 1,
     "id" : "michael-jordan\/0",
     "landmarks" : true,
-    "warning" : "51% of the dome crop is padding"
+    "warning" : "51% of the dome crop is padding",
+    "zoom" : {
+      "brow" : 0.034000000000000002,
+      "crop" : [
+        0.20449999999999999,
+        0,
+        0.59089999999999998,
+        0.45029999999999998
+      ],
+      "eyes" : 0.18099999999999999,
+      "full" : [
+        0,
+        0.2379,
+        1,
+        0.7621
+      ],
+      "nose" : 0.38500000000000001
+    }
   },
   {
     "confidence" : 1,
     "faces" : 1,
     "id" : "michael-stipe\/0",
     "landmarks" : true,
-    "warning" : "36% of the dome crop is padding"
+    "warning" : "36% of the dome crop is padding",
+    "zoom" : {
+      "brow" : 0.034000000000000002,
+      "crop" : [
+        0.20449999999999999,
+        0,
+        0.59089999999999998,
+        0.45029999999999998
+      ],
+      "eyes" : 0.154,
+      "full" : [
+        0,
+        0.2379,
+        1,
+        0.7621
+      ],
+      "nose" : 0.41199999999999998
+    }
   },
   {
     "confidence" : 1,
     "faces" : 1,
     "id" : "michael-stipe\/1",
     "landmarks" : true,
-    "warning" : "30% of the dome crop is padding"
+    "warning" : "30% of the dome crop is padding",
+    "zoom" : {
+      "brow" : 0.034000000000000002,
+      "crop" : [
+        0.20449999999999999,
+        0,
+        0.59089999999999998,
+        0.45029999999999998
+      ],
+      "eyes" : 0.13900000000000001,
+      "full" : [
+        0,
+        0.2379,
+        1,
+        0.7621
+      ],
+      "nose" : 0.42199999999999999
+    }
   },
   {
     "confidence" : 1,
     "faces" : 1,
     "id" : "mike-tyson\/0",
     "landmarks" : true,
-    "warning" : "38% of the dome crop is padding"
+    "warning" : "38% of the dome crop is padding",
+    "zoom" : {
+      "brow" : 0.034000000000000002,
+      "crop" : [
+        0.20449999999999999,
+        0,
+        0.59089999999999998,
+        0.45029999999999998
+      ],
+      "eyes" : 0.157,
+      "full" : [
+        0,
+        0.2379,
+        1,
+        0.7621
+      ],
+      "nose" : 0.39300000000000002
+    }
   },
   {
     "confidence" : 1,
     "faces" : 1,
     "id" : "mike-tyson\/1",
     "landmarks" : true,
-    "warning" : "42% of the dome crop is padding"
+    "warning" : "42% of the dome crop is padding",
+    "zoom" : {
+      "brow" : 0.034000000000000002,
+      "crop" : [
+        0.20449999999999999,
+        0,
+        0.59089999999999998,
+        0.45029999999999998
+      ],
+      "eyes" : 0.154,
+      "full" : [
+        0,
+        0.2379,
+        1,
+        0.7621
+      ],
+      "nose" : 0.36899999999999999
+    }
   },
   {
     "confidence" : 1,
     "faces" : 1,
     "id" : "mike-tyson\/2",
     "landmarks" : true,
-    "warning" : "40% of the dome crop is padding"
+    "warning" : "40% of the dome crop is padding",
+    "zoom" : {
+      "brow" : 0.034000000000000002,
+      "crop" : [
+        0.20449999999999999,
+        0,
+        0.59089999999999998,
+        0.45029999999999998
+      ],
+      "eyes" : 0.159,
+      "full" : [
+        0,
+        0.2379,
+        1,
+        0.7621
+      ],
+      "nose" : 0.40000000000000002
+    }
   },
   {
     "confidence" : 1,
     "faces" : 1,
     "id" : "mike-tyson\/3",
-    "landmarks" : true
+    "landmarks" : true,
+    "zoom" : {
+      "brow" : 0.034000000000000002,
+      "crop" : [
+        0.20449999999999999,
+        0,
+        0.59089999999999998,
+        0.45029999999999998
+      ],
+      "eyes" : 0.157,
+      "full" : [
+        0,
+        0.2379,
+        1,
+        0.7621
+      ],
+      "nose" : 0.46600000000000003
+    }
   },
   {
     "confidence" : 1,
     "faces" : 1,
     "id" : "moby\/0",
     "landmarks" : true,
-    "warning" : "31% of the dome crop is padding"
+    "warning" : "31% of the dome crop is padding",
+    "zoom" : {
+      "brow" : 0.034000000000000002,
+      "crop" : [
+        0.20449999999999999,
+        0,
+        0.59089999999999998,
+        0.45029999999999998
+      ],
+      "eyes" : 0.17199999999999999,
+      "full" : [
+        0,
+        0.2379,
+        1,
+        0.7621
+      ],
+      "nose" : 0.376
+    }
   },
   {
     "confidence" : 1,
     "faces" : 1,
     "id" : "moby\/1",
     "landmarks" : true,
-    "warning" : "54% of the dome crop is padding"
+    "warning" : "54% of the dome crop is padding",
+    "zoom" : {
+      "brow" : 0.034000000000000002,
+      "crop" : [
+        0.20449999999999999,
+        0,
+        0.59089999999999998,
+        0.45029999999999998
+      ],
+      "eyes" : 0.13500000000000001,
+      "full" : [
+        0,
+        0.2379,
+        1,
+        0.7621
+      ],
+      "nose" : 0.373
+    }
   },
   {
     "confidence" : 1,
     "faces" : 1,
     "id" : "moby\/2",
     "landmarks" : true,
-    "warning" : "31% of the dome crop is padding"
+    "warning" : "31% of the dome crop is padding",
+    "zoom" : {
+      "brow" : 0.034000000000000002,
+      "crop" : [
+        0.20449999999999999,
+        0,
+        0.59089999999999998,
+        0.45029999999999998
+      ],
+      "eyes" : 0.11600000000000001,
+      "full" : [
+        0,
+        0.2379,
+        1,
+        0.7621
+      ],
+      "nose" : 0.36299999999999999
+    }
   },
   {
     "confidence" : 1,
     "faces" : 1,
     "id" : "patrick-stewart\/0",
-    "landmarks" : true
+    "landmarks" : true,
+    "zoom" : {
+      "brow" : 0.034000000000000002,
+      "crop" : [
+        0.20449999999999999,
+        0,
+        0.59089999999999998,
+        0.45029999999999998
+      ],
+      "eyes" : 0.16800000000000001,
+      "full" : [
+        0,
+        0.2379,
+        1,
+        0.7621
+      ],
+      "nose" : 0.51900000000000002
+    }
   },
   {
     "confidence" : 1,
     "faces" : 1,
     "id" : "patrick-stewart\/1",
-    "landmarks" : true
+    "landmarks" : true,
+    "zoom" : {
+      "brow" : 0.034000000000000002,
+      "crop" : [
+        0.20449999999999999,
+        0,
+        0.59089999999999998,
+        0.45029999999999998
+      ],
+      "eyes" : 0.13900000000000001,
+      "full" : [
+        0,
+        0.2379,
+        1,
+        0.7621
+      ],
+      "nose" : 0.39400000000000002
+    }
   },
   {
     "confidence" : 1,
     "faces" : 1,
     "id" : "pierluigi-collina\/0",
     "landmarks" : true,
-    "warning" : "31% of the dome crop is padding"
+    "warning" : "31% of the dome crop is padding",
+    "zoom" : {
+      "brow" : 0.034000000000000002,
+      "crop" : [
+        0.20449999999999999,
+        0,
+        0.59089999999999998,
+        0.45029999999999998
+      ],
+      "eyes" : 0.16800000000000001,
+      "full" : [
+        0,
+        0.2379,
+        1,
+        0.7621
+      ],
+      "nose" : 0.50900000000000001
+    }
   },
   {
     "confidence" : 1,
     "faces" : 1,
     "id" : "pierluigi-collina\/1",
-    "landmarks" : true
+    "landmarks" : true,
+    "zoom" : {
+      "brow" : 0.034000000000000002,
+      "crop" : [
+        0.20449999999999999,
+        0,
+        0.59089999999999998,
+        0.45029999999999998
+      ],
+      "eyes" : 0.14899999999999999,
+      "full" : [
+        0,
+        0.2379,
+        1,
+        0.7621
+      ],
+      "nose" : 0.38100000000000001
+    }
   },
   {
     "confidence" : 1,
     "faces" : 1,
     "id" : "pitbull\/0",
     "landmarks" : true,
-    "warning" : "41% of the dome crop is padding"
+    "warning" : "41% of the dome crop is padding",
+    "zoom" : {
+      "brow" : 0.034000000000000002,
+      "crop" : [
+        0.20449999999999999,
+        0,
+        0.59089999999999998,
+        0.45029999999999998
+      ],
+      "eyes" : 0.192,
+      "full" : [
+        0,
+        0.2379,
+        1,
+        0.7621
+      ],
+      "nose" : 0.45900000000000002
+    }
   },
   {
     "confidence" : 1,
     "faces" : 1,
     "id" : "pitbull\/1",
     "landmarks" : true,
-    "warning" : "58% of the dome crop is padding"
+    "warning" : "58% of the dome crop is padding",
+    "zoom" : {
+      "brow" : 0.034000000000000002,
+      "crop" : [
+        0.20449999999999999,
+        0,
+        0.59089999999999998,
+        0.45029999999999998
+      ],
+      "eyes" : 0.17100000000000001,
+      "full" : [
+        0,
+        0.2379,
+        1,
+        0.7621
+      ],
+      "nose" : 0.436
+    }
   },
   {
     "confidence" : 1,
     "faces" : 1,
     "id" : "pitbull\/2",
-    "landmarks" : true
+    "landmarks" : true,
+    "zoom" : {
+      "brow" : 0.034000000000000002,
+      "crop" : [
+        0.20449999999999999,
+        0,
+        0.59089999999999998,
+        0.45029999999999998
+      ],
+      "eyes" : 0.14599999999999999,
+      "full" : [
+        0,
+        0.2379,
+        1,
+        0.7621
+      ],
+      "nose" : 0.39700000000000002
+    }
   },
   {
     "confidence" : 1,
     "faces" : 1,
     "id" : "pitbull\/3",
     "landmarks" : true,
-    "warning" : "42% of the dome crop is padding"
+    "warning" : "42% of the dome crop is padding",
+    "zoom" : {
+      "brow" : 0.034000000000000002,
+      "crop" : [
+        0.20449999999999999,
+        0,
+        0.59089999999999998,
+        0.45029999999999998
+      ],
+      "eyes" : 0.182,
+      "full" : [
+        0,
+        0.2379,
+        1,
+        0.7621
+      ],
+      "nose" : 0.42499999999999999
+    }
   },
   {
     "confidence" : 1,
     "faces" : 1,
     "id" : "samuel-l-jackson\/0",
     "landmarks" : true,
-    "warning" : "66% of the dome crop is padding"
+    "warning" : "66% of the dome crop is padding",
+    "zoom" : {
+      "brow" : 0.034000000000000002,
+      "crop" : [
+        0.20449999999999999,
+        0,
+        0.59089999999999998,
+        0.45029999999999998
+      ],
+      "eyes" : 0.153,
+      "full" : [
+        0,
+        0.2379,
+        1,
+        0.7621
+      ],
+      "nose" : 0.34499999999999997
+    }
   },
   {
     "confidence" : 1,
     "faces" : 1,
     "id" : "shaquille-oneal\/0",
     "landmarks" : true,
-    "warning" : "38% of the dome crop is padding"
+    "warning" : "38% of the dome crop is padding",
+    "zoom" : {
+      "brow" : 0.034000000000000002,
+      "crop" : [
+        0.20449999999999999,
+        0,
+        0.59089999999999998,
+        0.45029999999999998
+      ],
+      "eyes" : 0.17899999999999999,
+      "full" : [
+        0,
+        0.2379,
+        1,
+        0.7621
+      ],
+      "nose" : 0.438
+    }
   },
   {
     "confidence" : 1,
     "faces" : 1,
     "id" : "shaquille-oneal\/1",
     "landmarks" : true,
-    "warning" : "42% of the dome crop is padding"
+    "warning" : "42% of the dome crop is padding",
+    "zoom" : {
+      "brow" : 0.034000000000000002,
+      "crop" : [
+        0.20449999999999999,
+        0,
+        0.59089999999999998,
+        0.45029999999999998
+      ],
+      "eyes" : 0.14199999999999999,
+      "full" : [
+        0,
+        0.2379,
+        1,
+        0.7621
+      ],
+      "nose" : 0.37
+    }
   },
   {
     "confidence" : 1,
     "faces" : 1,
     "id" : "stanley-tucci\/0",
     "landmarks" : true,
-    "warning" : "37% of the dome crop is padding"
+    "warning" : "37% of the dome crop is padding",
+    "zoom" : {
+      "brow" : 0.034000000000000002,
+      "crop" : [
+        0.20449999999999999,
+        0,
+        0.59089999999999998,
+        0.45029999999999998
+      ],
+      "eyes" : 0.14099999999999999,
+      "full" : [
+        0,
+        0.2379,
+        1,
+        0.7621
+      ],
+      "nose" : 0.40999999999999998
+    }
   },
   {
     "confidence" : 1,
     "faces" : 1,
     "id" : "stanley-tucci\/1",
     "landmarks" : true,
-    "warning" : "53% of the dome crop is padding"
+    "warning" : "53% of the dome crop is padding",
+    "zoom" : {
+      "brow" : 0.034000000000000002,
+      "crop" : [
+        0.20449999999999999,
+        0,
+        0.59089999999999998,
+        0.45029999999999998
+      ],
+      "eyes" : 0.152,
+      "full" : [
+        0,
+        0.2379,
+        1,
+        0.7621
+      ],
+      "nose" : 0.41799999999999998
+    }
   },
   {
     "confidence" : 1,
     "faces" : 1,
     "id" : "stanley-tucci\/2",
     "landmarks" : true,
-    "warning" : "38% of the dome crop is padding"
+    "warning" : "38% of the dome crop is padding",
+    "zoom" : {
+      "brow" : 0.034000000000000002,
+      "crop" : [
+        0.20449999999999999,
+        0,
+        0.59089999999999998,
+        0.45029999999999998
+      ],
+      "eyes" : 0.13,
+      "full" : [
+        0,
+        0.2379,
+        1,
+        0.7621
+      ],
+      "nose" : 0.41899999999999998
+    }
   },
   {
     "confidence" : 1,
     "faces" : 1,
     "id" : "stanley-tucci\/3",
     "landmarks" : true,
-    "warning" : "41% of the dome crop is padding"
+    "warning" : "41% of the dome crop is padding",
+    "zoom" : {
+      "brow" : 0.034000000000000002,
+      "crop" : [
+        0.20449999999999999,
+        0,
+        0.59089999999999998,
+        0.45029999999999998
+      ],
+      "eyes" : 0.155,
+      "full" : [
+        0,
+        0.2379,
+        1,
+        0.7621
+      ],
+      "nose" : 0.41499999999999998
+    }
   },
   {
     "confidence" : 1,
     "faces" : 1,
     "id" : "steve-austin\/0",
     "landmarks" : true,
-    "warning" : "31% of the dome crop is padding"
+    "warning" : "31% of the dome crop is padding",
+    "zoom" : {
+      "brow" : 0.034000000000000002,
+      "crop" : [
+        0.20449999999999999,
+        0,
+        0.59089999999999998,
+        0.45029999999999998
+      ],
+      "eyes" : 0.13400000000000001,
+      "full" : [
+        0,
+        0.2379,
+        1,
+        0.7621
+      ],
+      "nose" : 0.36399999999999999
+    }
   },
   {
     "confidence" : 1,
     "faces" : 1,
     "id" : "steve-austin\/1",
-    "landmarks" : true
+    "landmarks" : true,
+    "zoom" : {
+      "brow" : 0.034000000000000002,
+      "crop" : [
+        0.20449999999999999,
+        0,
+        0.59089999999999998,
+        0.45029999999999998
+      ],
+      "eyes" : 0.14000000000000001,
+      "full" : [
+        0,
+        0.2379,
+        1,
+        0.7621
+      ],
+      "nose" : 0.436
+    }
   },
   {
     "confidence" : 1,
     "faces" : 1,
     "id" : "telly-savalas\/0",
     "landmarks" : true,
-    "warning" : "38% of the dome crop is padding"
+    "warning" : "38% of the dome crop is padding",
+    "zoom" : {
+      "brow" : 0.034000000000000002,
+      "crop" : [
+        0.20449999999999999,
+        0,
+        0.59089999999999998,
+        0.45029999999999998
+      ],
+      "eyes" : 0.11899999999999999,
+      "full" : [
+        0,
+        0.2379,
+        1,
+        0.7621
+      ],
+      "nose" : 0.38400000000000001
+    }
   },
   {
     "confidence" : 1,
     "faces" : 1,
     "id" : "telly-savalas\/1",
-    "landmarks" : true
+    "landmarks" : true,
+    "zoom" : {
+      "brow" : 0.034000000000000002,
+      "crop" : [
+        0.20449999999999999,
+        0,
+        0.59089999999999998,
+        0.45029999999999998
+      ],
+      "eyes" : 0.13400000000000001,
+      "full" : [
+        0,
+        0.2379,
+        1,
+        0.7621
+      ],
+      "nose" : 0.39500000000000002
+    }
   },
   {
     "confidence" : 1,
     "faces" : 1,
     "id" : "terry-crews\/0",
     "landmarks" : true,
-    "warning" : "35% of the dome crop is padding"
+    "warning" : "35% of the dome crop is padding",
+    "zoom" : {
+      "brow" : 0.034000000000000002,
+      "crop" : [
+        0.20449999999999999,
+        0,
+        0.59089999999999998,
+        0.45029999999999998
+      ],
+      "eyes" : 0.14199999999999999,
+      "full" : [
+        0,
+        0.2379,
+        1,
+        0.7621
+      ],
+      "nose" : 0.34200000000000003
+    }
   },
   {
     "confidence" : 1,
     "faces" : 1,
     "id" : "terry-crews\/1",
-    "landmarks" : true
+    "landmarks" : true,
+    "zoom" : {
+      "brow" : 0.034000000000000002,
+      "crop" : [
+        0.20449999999999999,
+        0,
+        0.59089999999999998,
+        0.45029999999999998
+      ],
+      "eyes" : 0.14199999999999999,
+      "full" : [
+        0,
+        0.2379,
+        1,
+        0.7621
+      ],
+      "nose" : 0.35499999999999998
+    }
   },
   {
     "confidence" : 1,
     "faces" : 1,
     "id" : "terry-crews\/2",
     "landmarks" : true,
-    "warning" : "52% of the dome crop is padding"
+    "warning" : "52% of the dome crop is padding",
+    "zoom" : {
+      "brow" : 0.034000000000000002,
+      "crop" : [
+        0.20449999999999999,
+        0,
+        0.59089999999999998,
+        0.45029999999999998
+      ],
+      "eyes" : 0.13700000000000001,
+      "full" : [
+        0,
+        0.2379,
+        1,
+        0.7621
+      ],
+      "nose" : 0.35499999999999998
+    }
   },
   {
     "confidence" : 1,
     "faces" : 1,
     "id" : "terry-crews\/3",
-    "landmarks" : true
+    "landmarks" : true,
+    "zoom" : {
+      "brow" : 0.034000000000000002,
+      "crop" : [
+        0.20449999999999999,
+        0,
+        0.59089999999999998,
+        0.45029999999999998
+      ],
+      "eyes" : 0.14999999999999999,
+      "full" : [
+        0,
+        0.2379,
+        1,
+        0.7621
+      ],
+      "nose" : 0.38700000000000001
+    }
   },
   {
     "confidence" : 1,
     "faces" : 1,
     "id" : "vin-diesel\/0",
     "landmarks" : true,
-    "warning" : "51% of the dome crop is padding"
+    "warning" : "51% of the dome crop is padding",
+    "zoom" : {
+      "brow" : 0.034000000000000002,
+      "crop" : [
+        0.20449999999999999,
+        0,
+        0.59089999999999998,
+        0.45029999999999998
+      ],
+      "eyes" : 0.156,
+      "full" : [
+        0,
+        0.2379,
+        1,
+        0.7621
+      ],
+      "nose" : 0.40000000000000002
+    }
   },
   {
     "confidence" : 1,
     "faces" : 1,
     "id" : "vin-diesel\/1",
     "landmarks" : true,
-    "warning" : "46% of the dome crop is padding"
+    "warning" : "46% of the dome crop is padding",
+    "zoom" : {
+      "brow" : 0.034000000000000002,
+      "crop" : [
+        0.20449999999999999,
+        0,
+        0.59089999999999998,
+        0.45029999999999998
+      ],
+      "eyes" : 0.14699999999999999,
+      "full" : [
+        0,
+        0.2379,
+        1,
+        0.7621
+      ],
+      "nose" : 0.38100000000000001
+    }
   },
   {
     "confidence" : 1,
     "faces" : 1,
     "id" : "vin-diesel\/2",
     "landmarks" : true,
-    "warning" : "49% of the dome crop is padding"
+    "warning" : "49% of the dome crop is padding",
+    "zoom" : {
+      "brow" : 0.034000000000000002,
+      "crop" : [
+        0.20449999999999999,
+        0,
+        0.59089999999999998,
+        0.45029999999999998
+      ],
+      "eyes" : 0.13900000000000001,
+      "full" : [
+        0,
+        0.2379,
+        1,
+        0.7621
+      ],
+      "nose" : 0.36299999999999999
+    }
   },
   {
     "confidence" : 1,
     "faces" : 1,
     "id" : "vin-diesel\/3",
     "landmarks" : true,
-    "warning" : "45% of the dome crop is padding"
+    "warning" : "45% of the dome crop is padding",
+    "zoom" : {
+      "brow" : 0.034000000000000002,
+      "crop" : [
+        0.20449999999999999,
+        0,
+        0.59089999999999998,
+        0.45029999999999998
+      ],
+      "eyes" : 0.189,
+      "full" : [
+        0,
+        0.2379,
+        1,
+        0.7621
+      ],
+      "nose" : 0.39500000000000002
+    }
   },
   {
     "confidence" : 1,
     "faces" : 2,
     "id" : "ving-rhames\/0",
-    "landmarks" : true
+    "landmarks" : true,
+    "zoom" : {
+      "brow" : 0.034000000000000002,
+      "crop" : [
+        0.20449999999999999,
+        0,
+        0.59089999999999998,
+        0.45029999999999998
+      ],
+      "eyes" : 0.13400000000000001,
+      "full" : [
+        0,
+        0.2379,
+        1,
+        0.7621
+      ],
+      "nose" : 0.35699999999999998
+    }
   },
   {
     "confidence" : 1,
     "faces" : 1,
     "id" : "woody-harrelson\/0",
     "landmarks" : true,
-    "warning" : "34% of the dome crop is padding"
+    "warning" : "34% of the dome crop is padding",
+    "zoom" : {
+      "brow" : 0.034000000000000002,
+      "crop" : [
+        0.20449999999999999,
+        0,
+        0.59089999999999998,
+        0.45029999999999998
+      ],
+      "eyes" : 0.12,
+      "full" : [
+        0,
+        0.2379,
+        1,
+        0.7621
+      ],
+      "nose" : 0.38400000000000001
+    }
   },
   {
     "confidence" : 1,
     "faces" : 1,
     "id" : "yul-brynner\/0",
     "landmarks" : true,
-    "warning" : "41% of the dome crop is padding"
+    "warning" : "41% of the dome crop is padding",
+    "zoom" : {
+      "brow" : 0.034000000000000002,
+      "crop" : [
+        0.20449999999999999,
+        0,
+        0.59089999999999998,
+        0.45029999999999998
+      ],
+      "eyes" : 0.11899999999999999,
+      "full" : [
+        0,
+        0.2379,
+        1,
+        0.7621
+      ],
+      "nose" : 0.39600000000000002
+    }
   },
   {
     "confidence" : 1,
     "faces" : 1,
     "id" : "zinedine-zidane\/0",
-    "landmarks" : true
+    "landmarks" : true,
+    "zoom" : {
+      "brow" : 0.034000000000000002,
+      "crop" : [
+        0.20449999999999999,
+        0,
+        0.59089999999999998,
+        0.45029999999999998
+      ],
+      "eyes" : 0.13300000000000001,
+      "full" : [
+        0,
+        0.2379,
+        1,
+        0.7621
+      ],
+      "nose" : 0.48499999999999999
+    }
   }
 ]
